@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// main creates a square matrix of size (n*n) and fills it in a circular fashion
 func main() {
 	var gridDim int
 	fmt.Print("Enter circular array size: ")
