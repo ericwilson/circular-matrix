@@ -14,28 +14,28 @@ func main() {
 
 	// allocate composed 2d array
 	grid := make([][]int, gridDim)
-	for i := range grid {
-		grid[i] = make([]int, gridDim)
+	for x := range grid {
+		grid[x] = make([]int, gridDim)
 	}
 
 	for cellValue <= gridLen {
-		for i := col_begin; i <= col_end; i++ {
-			grid[row_begin][i] = cellValue
+		for c := col_begin; c <= col_end; c++ {
+			grid[row_begin][c] = cellValue
 			cellValue++
 		}
 
-		for j := row_begin + 1; j <= row_end; j++ {
-			grid[j][col_end] = cellValue
+		for r := row_begin + 1; r <= row_end; r++ {
+			grid[r][col_end] = cellValue
 			cellValue++
 		}
 
-		for i := col_end - 1; i >= col_begin; i-- {
-			grid[row_end][i] = cellValue
+		for c := col_end - 1; c >= col_begin; c-- {
+			grid[row_end][c] = cellValue
 			cellValue++
 		}
 
-		for j := row_end - 1; j >= row_begin +1; j-- {
-			grid[j][col_begin] = cellValue
+		for r := row_end - 1; r >= row_begin +1; r-- {
+			grid[r][col_begin] = cellValue
 			cellValue++
 		}
 
