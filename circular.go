@@ -5,11 +5,11 @@ import "fmt"
 // main creates a square matrix of size (n*n) and fills it in a circular fashion
 func main() {
 	var gridDim int
-	fmt.Print("Enter circular array size: ")
+	fmt.Print("\nEnter circular matrix size: ")
 	fmt.Scan(&gridDim)
 
 	var cellValue int = 1
-	var col1, col2, row1, row2 int = 0, gridDim - 1, 0, gridDim - 1
+	var col_begin, col_end, row_begin, row_end int = 0, gridDim - 1, 0, gridDim - 1
 	var gridLen int = gridDim * gridDim
 
 	// allocate composed 2d array
@@ -19,34 +19,34 @@ func main() {
 	}
 
 	for cellValue <= gridLen {
-		for i := col1; i <= col2; i++ {
-			grid[row1][i] = cellValue
+		for i := col_begin; i <= col_end; i++ {
+			grid[row_begin][i] = cellValue
 			cellValue++
 		}
 
-		for j := row1 + 1; j <= row2; j++ {
-			grid[j][col2] = cellValue
+		for j := row_begin + 1; j <= row_end; j++ {
+			grid[j][col_end] = cellValue
 			cellValue++
 		}
 
-		for i := col2 - 1; i >= col1; i-- {
-			grid[row2][i] = cellValue
+		for i := col_end - 1; i >= col_begin; i-- {
+			grid[row_end][i] = cellValue
 			cellValue++
 		}
 
-		for j := row2 - 1; j >= row1+1; j-- {
-			grid[j][col1] = cellValue
+		for j := row_end - 1; j >= row_begin +1; j-- {
+			grid[j][col_begin] = cellValue
 			cellValue++
 		}
 
-		col1++
-		col2--
-		row1++
-		row2--
+		col_begin++
+		col_end--
+		row_begin++
+		row_end--
 	}
 
 	/* printing the circular matrix */
-	println("Here is your circular matrix is:")
+	println("\nYour circular matrix is:")
 	for i := 0; i < gridDim; i++ {
 		for j := 0; j < gridDim; j++ {
 			fmt.Printf("%d\t", grid[i][j])
