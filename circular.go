@@ -45,7 +45,7 @@ func main() {
 		row_end--
 	}
 
-	/* printing the circular matrix */
+	// printing the circular matrix
 	println("\nYour circular matrix is:")
 	for i := 0; i < gridDim; i++ {
 		for j := 0; j < gridDim; j++ {
